@@ -84,4 +84,4 @@ min(table(mvt$Month))
 max(table(mvt$Weekday))
 
 #Which month has the largest number of motor vehicle thefts for which an arrest was made?
-tapply(mvt,mvt$Month,count)
+table(mvt$Month,mvt$Arrest)
