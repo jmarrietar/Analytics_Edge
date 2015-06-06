@@ -51,10 +51,37 @@ tapply(WHO$ChildMortality,WHO$Region,mean)
 #Load Data##
 ############
 
+mvt<-read.csv("mvtWeek1.csv")
 
+nrow(mvt)
+mvt$ID[which.max(mvt$ID)]
+max(mvt$ID)
+min(mvt$Beat)
+summary(mvt$Arrest)
+summary(mvt$LocationDescription)
 
+############
+#Dates in R#
+############
 
+#Characters to to Date Objects. 
+DateConvert=as.Date(strptime(mvt$Date,"%m/%d/%y %H:%M"))
 
+summary(DateConvert)
 
+#Extract Month and Day from Dates. 
+mvt$Month=months(DateConvert)
+mvt$Weekday=weekdays(DateConvert)
 
+#Replace old Date variable with DateConvert
 
+mvt$Date=DateConvert
+
+#In which month did the fewest motor vehicle thefts occur?
+min(table(mvt$Month))
+
+#On which weekday did the most motor vehicle thefts occur?
+max(table(mvt$Weekday))
+
+#Which month has the largest number of motor vehicle thefts for which an arrest was made?
+tapply(mvt,mvt$Month,count)
