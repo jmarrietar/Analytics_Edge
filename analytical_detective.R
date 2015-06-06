@@ -85,3 +85,41 @@ max(table(mvt$Weekday))
 
 #Which month has the largest number of motor vehicle thefts for which an arrest was made?
 table(mvt$Month,mvt$Arrest)
+
+##########################
+#VISUALIZING CRIME TRENDS#
+##########################
+
+#Histogram of the variable Date
+
+hist(mvt$Date, breaks=100)
+
+#let's see how arrests have changed over time. 
+
+# boxplot of the variable "Date", sorted by the variable "Arrest"
+boxplot(mvt$Date ~ mvt$Arrest)
+#For what proportion of motor vehicle thefts in 2001 was an arrest made?
+require(lubridate)
+mvt$Year=year(DateConvert)
+
+table(mvt$Year[mvt$Year==2001],mvt$Arrest[mvt$Year==2001])
+
+table(mvt$Arrest, mvt$Year)
+
+####################
+#POPULAR LOCATIONS##  
+####################
+
+#Which locations are the top five locations for motor vehicle thefts, excluding the "Other" category? 
+sort(table(mvt$LocationDescription))
+
+
+
+
+
+
+
+
+
+
+
