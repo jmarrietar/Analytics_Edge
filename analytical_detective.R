@@ -113,8 +113,20 @@ table(mvt$Arrest, mvt$Year)
 #Which locations are the top five locations for motor vehicle thefts, excluding the "Other" category? 
 sort(table(mvt$LocationDescription))
 
+Top5<-subset(mvt,mvt$LocationDescription=="STREET"|mvt$LocationDescription=="PARKING LOT/GARAGE(NON.RESID.)" 
+             |mvt$LocationDescription=="ALLEY"|mvt$LocationDescription=="GAS STATION"|mvt$LocationDescription=="DRIVEWAY - RESIDENTIAL")
 
 
+#Another way 
+TopLocations = c("STREET", "PARKING LOT/GARAGE(NON.RESID.)", "ALLEY", "GAS STATION", "DRIVEWAY - RESIDENTIAL")
+Top5 = subset(mvt, LocationDescription %in% TopLocations)
+
+table(Top5$LocationDescription) #Have a lot of unnecesary Variables, is needed it to refresh factor Variable. 
+
+Top5$LocationDescription=factor(Top5$LocationDescription) #Now only have 5 variables. 
+table(Top5$LocationDescription) 
+
+#Which of these Top5 locations has the higher arrest Rate?. 
 
 
 
