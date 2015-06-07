@@ -42,6 +42,31 @@ abline(v=as.Date(c("1983-03-01")),lwd=2)
 #ylim=c(0,210), makes the y-axis range from 0 to 210
 
 plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432],col="blue")
+lines(GE$Date[301:432], GE$StockPrice[301:432],col="green")
+lines(IBM$Date[301:432], IBM$StockPrice[301:432],col="black")
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432],col="purple")
+
+#2004 
+abline(v=as.Date(c("2004-01-01")),lwd=2)
+#2005 
+abline(v=as.Date(c("2005-01-01")),lwd=2)
+
+#September 1997 
+abline(v=as.Date(c("1997-09-01")),lwd=2)
+#November 1997 
+abline(v=as.Date(c("1997-11-01")),lwd=2)
+
+
+################
+#MONTHLY TRENDS#
+################
+
+#To sort by month is needed to use months(IBM$Date) as second function. 
+
+tapply(IBM$StockPrice,months(IBM$Date),mean)
+mean(IBM$StockPrice)
+
 
 
 
