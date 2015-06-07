@@ -127,9 +127,12 @@ Top5$LocationDescription=factor(Top5$LocationDescription) #Now only have 5 varia
 table(Top5$LocationDescription) 
 
 #Which of these Top5 locations has the higher arrest Rate?. 
+table(Top5$Arrest, Top5$LocationDescription)
 
+#On which day of the week do the most motor vehicle thefts at gas stations happen?
+table(Top5$LocationDescription=="GAS STATION", Top5$Weekday)
 
-
+table(Top5$LocationDescription, Top5$Weekday)
 
 
 
