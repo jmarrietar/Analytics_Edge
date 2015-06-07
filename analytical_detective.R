@@ -7,7 +7,7 @@ sd(c(5,8,12))
 which.min(c(4,1,6))
 Sys.setlocale("LC_ALL", "C")
 
-WHO<-read.csv("WHO.csv")
+WHO<-read.csv("Data/WHO.csv")
 
 which.min(WHO$Over60)
 WHO[183,]
@@ -51,7 +51,7 @@ tapply(WHO$ChildMortality,WHO$Region,mean)
 #Load Data##
 ############
 
-mvt<-read.csv("mvtWeek1.csv")
+mvt<-read.csv("Data/mvtWeek1.csv")
 
 nrow(mvt)
 mvt$ID[which.max(mvt$ID)]
