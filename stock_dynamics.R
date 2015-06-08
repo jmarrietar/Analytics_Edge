@@ -63,7 +63,6 @@ abline(v=as.Date(c("1997-11-01")),lwd=2)
 ################
 
 #To sort by month is needed to use months(IBM$Date) as second function. 
-
 tapply(IBM$StockPrice,months(IBM$Date),mean)
 mean(IBM$StockPrice)
 
